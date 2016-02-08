@@ -1,0 +1,28 @@
+{
+  "name": "polymer-demo",
+  "authors": [
+    "rdev <robert@myradio.nl>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.4",
+    "paper-elements": "^1.0.7",
+    "iron-elements": "^1.0.8"
+  },
+  "resolutions": {
+    "polymer": "^1.2.4",
+    "webcomponentsjs": "^0.7.20"
+  }
+}

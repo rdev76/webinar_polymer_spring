@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- include the polyfill -->
+    <script src="js/bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="import" href="js/bower_components/paper-elements/paper-elements.html">
+
+    <!-- use html import to bring in our custom components -->
+    <link rel="import" href="elements/greeting-display.html">
+
+    <style>
+        paper-toolbar.paper-toolbar-0 {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <paper-header-panel flex>
+        <paper-toolbar id="mainheader">
+            <span flex>Title</span>
+        </paper-toolbar>
+    </paper-header-panel>
+    <div id="content">
+        <greeting-display></greeting-display>
+    </div>
+</body>
+</html>

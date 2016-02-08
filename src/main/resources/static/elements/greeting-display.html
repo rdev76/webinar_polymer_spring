@@ -1,0 +1,54 @@
+<link rel="import" href="../js/bower_components/polymer/polymer.html">
+<link rel="import" href="../js/bower_components/paper-elements/paper-elements.html">
+<link rel="import" href="../js/bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="greeting-display">
+
+    <template>
+        <style>
+            div.bubble {
+                margin: 20px;
+                padding: 80px 20px;
+                border-radius: 20px;
+                background-color: #eee;
+            }
+        </style>
+
+        <iron-ajax id="resourceEndpoint"
+                   auto
+                   url="/resource"
+                   handle-as="json"
+                   last-response="{{greeting}}"
+                   on-error="resourceError"></iron-ajax>
+
+        <paper-toast id="errorToast" text="Error!"></paper-toast>
+
+        <div class="bubble">
+            <h1>Greeting</h1>
+            <p>The ID is {{greeting.id}}</p> <!-- greeting.id werkt pas na toevoeging van ajax. De default waarde werkt niet -->
+            <p>The content is {{greeting.content}}</p>
+            <p><paper-icon-button icon="3d-rotation" on-click="refresh">Refresh</paper-icon-button></p>
+        </div>
+    </template>
+
+    <script>
+        Polymer({
+            is: "greeting-display",
+            properties: {
+                greeting: {
+                    id: "123", //id kan een polymer 0.5 syntax zijn
+                    type: String,
+                    value: "default"
+                }
+            },
+            refresh: function() {
+                resourceEndpoint.generateRequest();
+            },
+            resourceError: function() {
+                errorToast.text="Resource Service Error";
+                errorToast.show();
+            }
+        });
+    </script>
+
+</dom-module>
